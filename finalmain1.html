@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>세계지도ㅣ국가별질병정보ㅣ해외질병</title>
+<style type="text/css">
+		*{
+		margin:0px;
+		padding:0px;
+	}
+	.clear{
+		clear:both;
+	}
+
+/* 헤더 부분*/
+header{
+	position:absolute; left:500px; top:30px;
+	width:1550px; height:110px;
+}
+/* 로고*/
+header>a{
+	float:left;
+}
+/* 검색창*/
+header form{
+	display:inline-block;
+	float:left;
+	border:solid 1px #21A089;
+	margin-left:100px;
+}
+#검색{
+	width:550px; height:60px;
+	border:solid 2px #21A089;
+}
+/* 인기키워드*/
+header li{
+	list-style-type:none;
+	line-height:180%;
+}
+header caption{
+	font-size:35px;
+	font-weight:bold;
+	margin:20px;
+	border-bottom:solid 1px #bbbbbb;
+	padding-bottom:20px;
+}
+#순위{
+	width:60px;
+	font-style:italic;
+	font-family:"맑은 고딕";
+	padding-left:20px;
+}
+#인기키워드{
+	width:200px;
+}
+#인기키워드부분{
+	margin-left:100px;
+	display:inline-block;
+}
+.h1{
+	position:absolute;
+	top:15px;
+	right:220px;
+}
+#인기키워드테이블{
+	border:solid 1px #cccccc;
+	border-top:solid 2px black;
+	position:relative;
+	z-index:1;
+	padding-bottom:20px;
+}
+#none, #인기키워드테이블{
+	display:none;
+}
+#인기키워드부분:active #none{
+	display:inline;
+}
+#인기키워드부분:active #인기키워드테이블{
+	display:block;
+	background-color:white;
+}
+/* ENG 부분*/
+#hl{
+	position:absolute;
+	right:1px; bottom:50px;
+}
+
+/* 네비 부분*/
+nav{
+	position:absolute; left:500px; top:140px;
+	width:1550px;
+	height:70px;
+	border-top:solid 1px #dddddd;
+	border-bottom:solid 1px #dddddd;
+}
+
+nav>div{
+	display:inline-block;
+	font-size:24px;
+	position:absolute;
+	top:17px;
+	width:100px;
+	height:47px;
+}
+nav li{
+	list-style-type:square;
+}
+#na1{width:80px;} #na5{width:110px;} #na6{width:130px;} #na7{width:150px;} #na9{width:170px;}
+#na1{left:0px;} #na2{left:143px;} #na3{left:306px;}
+#na4{left:469px;} #na5{left:632px;} #na6{left:805px;}
+#na7{left:998px;} #na8{left:1211px;} #na9{left:1374px;}
+/* 감염병 메뉴*/
+#na1 td{
+	width:270px;
+	padding-top:20px;
+	padding-bottom:20px;
+	padding-left:5px;
+	border-right:solid 1px #dddddd;
+}
+#na1 li{
+	font-size:20px;
+	line-height:180%;
+	margin-left:40px;
+}
+#na1 table{
+	display:none;
+	box-shadow:2px 13px 10px #eeeeee;
+	height:300px;
+}
+#na1:hover table{
+	display:block;
+}
+/*감염병 메뉴위에 커서 올릴시 글자'감염병'의 색을 녹색으로 하고
+세부메뉴와의 구분선(실제 페이지의 녹색 굵은선)이 나오도록 구현*/
+#na1:hover span{
+	color:#219F8A;
+}
+#na1:hover{
+	border-bottom:solid 6px #219F8A;
+}
+
+.nt{
+	overflow:hidden;
+	width:500px;
+	height:0px;
+	transition: width 0.6s,height 0.6s;
+	position:absolute;
+	z-index:1;
+	background-color:white;
+}
+#na1:hover .nt{
+	width:500px;
+	height:313px;
+}
+/* 기관소개 메뉴*/
+#na8 td{
+	width:270px;
+	padding-top:20px;
+	padding-bottom:20px;
+	padding-left:5px;
+	border-right:solid 1px #dddddd;
+}
+#na8 li{
+	font-size:20px;
+	line-height:180%;
+	margin-left:40px;
+}
+#na8 table{
+	display:none;
+	box-shadow:2px 13px 10px #eeeeee;
+	height:300px;
+}
+#na8:hover table{
+	display:block;
+}
+#na8:hover span{
+	color:#219F8A;
+}
+#na8:hover{
+	border-bottom:solid 6px #219F8A;
+}
+.nt8{
+	position:absolute;
+	top:27px; left:-1210px;
+	width:1350px; height:0px;
+	overflow:hidden;
+	transition: width 0.6s,height 0.6s;
+	position:relative;
+	z-index:1;
+	background-color:white;
+}
+#na8:hover .nt8{
+	width:1350px;
+	height:313px;
+}
+
+/*어사이드 부분*/
+aside{
+	display:inline-block;
+	position:relative;
+	top:250px; left:500px;
+}
+aside td{
+	padding-top:12px;
+	padding-bottom:15px;
+	padding-left:10px;
+	font-size:18px;
+	width:330px;
+	border-bottom:solid 1px #dddddd;
+}
+aside img{
+	width:20px;
+	position:relative;
+	top:5px;
+}
+.aright{
+	float:right;
+	padding-right:10px;
+}
+#topmenu{
+	font-size:30px;
+	padding-left:0px;
+	border-bottom:solid 3px #dddddd;
+}
+aside li{
+	margin-left:20px;
+	line-height:180%;
+	list-style-type:square;
+}/*패딩-left을 지정하면 글머리표는 움직이지 않으므로 마진으로 설정한다.*/
+#foreign{
+	background-color:#21A089;
+	color:white;
+}
+#foreignli{
+	color:#21A089;
+	font-weight:bold;
+}
+#foreignul{
+	background-color:#F5F6FA;
+}
+
+/*section*/
+/*sec1*/
+#sec1{
+	display:inline-block;
+	position:relative; left:890px; top:-347px;
+	height:370px;
+}
+#sec1 span{
+	color:#868686;
+}
+#set{
+	font-weight:bold;
+	font-size:30px;
+	padding-bottom:25px;
+}
+#set1{
+	width:1060px;
+}
+#sectr td{
+	border-bottom:solid 3px black;
+}
+#sectr2 td{
+	border-bottom:solid 1px #dddddd;
+	padding-top:10px;
+	padding-bottom:10px;
+}
+#t{
+	width:600px;
+	position:relative;
+	left:560px;
+	top:10px;
+}
+#k{
+	margin-top:30px;
+	margin-bottom:30px;
+	width:1165px;
+}
+
+/*sec2*/
+#sec2{
+	width:1165px;
+	height:700px;
+	background-image:url("./i/se6.jpg");
+	background-repeat:no-repeat;
+	background-position:center center;
+	background-size:cover;
+	position:relative;
+	left:890px; top:-200px;
+}	
+#국가별정보{
+	position:absolute;
+	top:-130px;
+}
+#sec2>div{
+	position:absolute;
+	color:white;
+	background-color:#7D8A9D;
+	text-align:center;
+	font-size:16px;
+	font-weight:bold;
+	width:100px; height:100px;
+	line-height:620%;
+	border-radius:50%;
+}
+#북아메리카{
+	left:180px; top:140px;
+}
+#중앙아메리카{
+	left:195px; top:370px;
+}
+#남아메리카{
+	left:300px; top:480px;
+}
+#아프리카{
+	left:550px; top:420px;
+}
+#중동{
+	left:630px; top:290px;
+}
+#유럽{
+	left:700px; top:150px;
+}
+#아시아{
+	left:850px; top:260px;
+}
+#오세아니아{
+	left:930px; top:500px;
+}
+
+#북아메리카:hover{
+	background-color:#043763;
+}
+#중앙아메리카:hover{
+	background-color:#043763;
+}
+#남아메리카:hover{
+	background-color:#043763;
+}
+#아프리카:hover{
+	background-color:#043763;
+}
+#중동:hover{
+	background-color:#043763;
+}
+#유럽:hover{
+	background-color:#043763;
+}
+#아시아:hover{
+	background-color:#043763;
+}
+#오세아니아:hover{
+	background-color:#043763;
+}
+
+#가나다{
+	position:absolute;
+	top:730px;
+}
+#국가리스트{
+	position:absolute;
+	top:850px;
+}
+/*푸터 부분*/
+footer{
+	background-color:#F5F6FA;
+	height:290px;
+	position:relative;
+	top:500px;
+	border-top:solid 1px #dddddd;
+}/*푸터의 배경색 설정, 높이 설정 등*/ 
+footer>div{
+	background-color:white;
+}/*푸터 바로 밑의 div태그의 배경색을 설정.(안하면 푸터의 배경색으로 나옴)*/
+footer ul{
+	height:60px;/*div가 ul태그를 감싸고 있어 ul태그의 높이를 설정하면 div의 높이도 따라감.*/
+	margin-left:500px; width:1550px;/*<-헤더, 네비 부분의 위치와 길이로 맞춤.*/
+} 
+footer li{
+	list-style-type:none;
+	display:inline-block;
+	padding-top:15px;
+	margin-right:21px;
+	font-size:18px;
+}/*푸터에 있는 li태그의 글머리를 삭제 및 인라인블록으로 디스플레이
+여기서 주의할 점은 인라인 방식을 사용하면 안된다는 것이다. */ 
+footer p{
+	font-weight:bold;/*p태그의 글자를 굵게*/
+	margin-top:37px;/*위쪽 여백을 주기위해 사용*/
+	float:left;
+	margin-left:500px;/*헤더,네비 부분과 맞추기위해 사용.*/
+	margin-right:20px;/*오른쪽 사진 4개(클래스 f)부분과의 간격을 벌리기위해 사용.*/
+} 
+.f{
+	float:left;/*p태그와 .f 사진들을 왼쪽으로 쌓음.*/
+	width:278px;/*너비만 지정하면 높이는 자동으로 설정됨.*/
+	margin-top:20px;/*p태그 글자 부분이 사진 옆의 중앙에 오도록 설정.*/
+}
+#bold{
+	font-weight:bold;
+	font-size:20px;
+}/* #bold ('관련링크' 글자) 글자크기 크게, 굵게 */  
+#green{
+	color:#21A089;
+}/* #green('개인정보처리방침') 글자색 녹색으로)*/
+
+#fleft{
+	width:650px;
+	float:left;
+	margin-left:493px;
+	margin-top:30px;
+}/*float:left+ 위치 설정*/
+#fright{
+	width:800px;
+	float:right;
+	margin-right:490px;
+	margin-top:30px;
+}/*float:right+ 위치 설정*/
+
+
+/*css 끝*/
+
+</style>
+</head>
+
+
+<body>
+<header>
+<a href="index.html"><img src="./i/11.jpg" width="230" height="90"></a>
+<form name="a">
+<input id="검색" type="text" placeholder="검색어를 입력해주세요." name="aa">
+</form>
+<img src="./i/15.jpg" height="66">
+<!--인기키워드 부분 -->
+<div id="인기키워드부분">
+<a href="http://www.cdc.go.kr/search/search.es?mid=a20101000000"><img src="./i/16.jpg" width="180" height="60"></a>
+<img class="h1" src="./i/13.jpg" width="40" height="40">
+<img class="h1" id="none" src="./i/14.jpg" width="40" height="40">
+<!--인기키워드 테이블-->
+<table id="인기키워드테이블">
+<caption>인기키워드</caption>
+<tr>
+<td id="순위"><ul>
+<li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li>
+<li>7</li><li>8</li><li>9</li><li>10</li>
+</ul></td>
+<td id="인기키워드"><ul>
+<li>코로나19</li><li>메르스</li><li>자가격리</li><li>코로나19예방수칙</li>
+<li>손씻기</li><li>대응지침</li><li>마스크</li><li>포스터</li>
+<li>방역</li><li>사회적거리두기</li>
+</ul></td>
+</tr>
+</table>
+<!--인기키워드 테이블 끝-->
+</div>
+<!--인기키워드 부분 끝-->
+
+<div class="clear"></div>
+
+<div id="hl">
+<img src="./i/12-1.jpg" width="80" height="50">
+<img src="./i/12.jpg" width="50" height="50">
+</div>
+
+<div class="clear"></div>
+</header>
+
+<nav>
+	<div id="na1"><span>감염병</span> <br><br>
+		<div class="nt"><table>
+			<tr><td>감염병정보</td><td>해외감염정보</td></tr>
+			<tr><td></td>
+				<td>
+				<ul><a href="finalmain1.html">
+					<li>해외질병</li></a>
+					<li>해외감염병NOW</li>
+					<li>예방접종정보</li>
+					<li>국가별요구사항</li>
+				</ul>
+			</td></tr>
+		</table></div>
+	</div>
+	<div id="na2">건강정보</div>
+	<div id="na3">정책정보</div>
+	<div id="na4">연구개발</div>
+	<div id="na5">알림.자료</div>
+	<div id="na6">간행물.통계</div>
+	<div id="na7">민원.정보공개</div>
+    <div id="na8"><span>기관소개</span>
+    <div class="nt8"><table>
+		<tr><td>소개</td><td>비전과미션</td><td>핵심사업</td><td><a href="finalmain3.html">정부상징</a></td><td><a href="finalmain2.html">웹접근성품질인증</a></td></tr>
+		<tr><td><ul>
+			<li>인사말</li><li>약력</li>
+		</ul></td><td></td><td></td><td></td><td></td></tr>
+	</table></div>
+	</div>
+	<div id="na9">사업별홈페이지</div>	
+</nav>
+<div class="clear"></div>
+
+<aside>
+<table>
+<tr><td id="topmenu">감염병</td></tr>
+<tr><td>감염병정보<img src="./i/a1.jpg" class="aright"></td></tr>
+<tr><td id="foreign">해외감염정보<img src="./i/a2.jpg" class="aright"></td></tr>
+<tr><td id="foreignul">
+	<ul>
+		<li id="foreignli">해외질병-</li>
+		<li>해외감염병NOW<img src="./i/aa1.jpg"></li>
+		<li>예방접종정보</li>
+		<li>국가별요구사항</li>
+	</ul>
+</td></tr>
+<tr><td>감염병유행정보<img src="./i/aa2.jpg"><img src="./i/a1.jpg" class="aright"></td></tr>
+<tr><td>결핵<img src="./i/aa2.jpg"><img src="./i/a1.jpg" class="aright"></td></tr>
+<tr><td>예방접종<img src="./i/aa2.jpg"><img src="./i/a1.jpg" class="aright"></td></tr>
+<tr><td>감염병간행물<img src="./i/a1.jpg" class="aright"></td></tr>
+</table>	
+</aside>
+<div class="clear"></div>
+
+<section id="sec1">
+<img id="t" src="./i/se3.jpg">
+<table>
+<tr id="sectr"><td id="set">해외질병</td><td><img src="./i/se1.jpg"></td></tr>
+<tr id="sectr2"><td id="set1">&nbsp;<span>작성일</span> 2019-05-16&nbsp;<span>ㅣ&nbsp;최종수정일</span>
+	2020-01-09&nbsp;<span>ㅣ&nbsp;담당부서</span>검역지원과&nbsp;<span>
+	ㅣ&nbsp;연락처</span> 043-719-9215
+	</td>
+	<td id="set2"><img src="./i/se2.jpg">&nbsp;414,018</td></tr>
+</table>
+<img id="k" src="./i/se4.jpg">
+</section>
+<div class="clear"></div>
+
+<section id="sec2">
+<img id="국가별정보" src="./i/se5.jpg" width="750px">
+<div id="북아메리카">북아메리카</div>
+<div id="중앙아메리카">중앙아메리카</div>
+<div id="남아메리카">남아메리카</div>
+<div id="아프리카">아프리카</div>
+<div id="중동">중동</div>
+<div id="유럽">유럽</div>
+<div id="아시아">아시아</div>
+<div id="오세아니아">오세아니아</div>
+<img id="가나다" src="./i/se7.jpg" width="1165px">
+<img id="국가리스트" src="./i/se8.jpg" width="1165px">
+</section>
+<div class="clear"></div>
+
+<footer>
+<div>
+<ul>
+	<li><sapn id="bold">관련링크&nbsp;&lt;&nbsp;&gt;</sapn></li>
+	<li>임상진료지침 디지털 가이드라인</li>
+	<li>KoGES</li>
+	<li>질병관리본부국제학술지(OsongPHRP)</li>
+	<li>만성신장병코호트연구</li>
+	<li>국민건강영양조사</li>
+	<li>국립의과학지식센터</li>
+	<li>보건복지통계</li>
+</ul>
+</div>
+<p>이용안내&nbsp;<span id="green">개인정보처리방침</span>&nbsp;웹접근성품질인증&nbsp;저작권정책&nbsp;</p><img class="f" src="./i/f1.jpg" title="관련사이트 열기"><img class="f" src="./i/f2.jpg" title="관련사이트 열기"><img class="f" src="./i/f3.jpg" title="관련사이트 열기"><img class="f" src="./i/f4.jpg" title="관련사이트 열기"><!--title 속성을 사용하여 사진위에 커서올리면 실제 페이지처럼 설명창 뜨게끔 설정.-->
+
+<div class="clear"></div><!--float속성을 해제한다. 만약 사진의 너비가 커서 자동으로 다음줄로 내려오지 않는다면 다음줄으로 내리는데 어려움이 있으므로 해제하고 다시 float:left를 적용하여 다음줄에 배치한다.-->
+<img id="fleft" src="./i/ff1.jpg"><img id="fright" src="./i/ff2.jpg">
+</footer>
+
+</body>
+</html>
